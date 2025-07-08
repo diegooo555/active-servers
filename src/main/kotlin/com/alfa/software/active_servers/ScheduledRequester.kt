@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono
 
 @Component
 class ScheduledRequester (@Value("\${server.one}") private val url : String, @Value("\${server.two}") private val urlTwo : String){
-    private val webClient = WebClient.create();
+    private val webClient = WebClient.create()
 
     @Scheduled(fixedRate = 5 * 60 * 1000)
     fun sendRequests(){

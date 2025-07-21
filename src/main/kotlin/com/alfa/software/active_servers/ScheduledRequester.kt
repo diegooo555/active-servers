@@ -18,9 +18,6 @@ class ScheduledRequester (@Value("\${server.one}") private val url : String, @Va
                 .uri(url)
                 .retrieve()
                 .bodyToMono(String::class.java)
-                .doOnNext { response ->
-                    println("Respuesta del servidor: $response")
-                }
                 .onErrorResume { ex ->
                     Mono.empty()
                 }
